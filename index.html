@@ -2,328 +2,194 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jigyasa Tiwari - Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jigyasa Tiwari - CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
     body {
-      font-family: 'Montserrat', sans-serif;
-      background: #f4f7f8;
       margin: 0;
-      padding: 20px;
-      color: #333;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #ffd6e7, #ffe6f2, #ffcce0);
+      background-size: 300% 300%;
+      animation: moveBg 15s infinite alternate;
     }
-    .container {
-      max-width: 800px;
-      background: #fff;
+
+    @keyframes moveBg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .wave {
+      position: relative;
+      width: 100%;
+      height: 100px;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .wave svg {
+      position: relative;
+      display: block;
+      width: calc(150% + 1.3px);
+      height: 100px;
+    }
+
+    .wave path {
+      fill: rgba(255, 255, 255, 0.8);
+      animation: waveMove 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes waveMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50px); }
+    }
+
+    .cv-container {
+      max-width: 900px;
       margin: 0 auto;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      padding: 30px 40px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transform: translateY(-50px);
     }
-    header {
+
+    h1 {
       text-align: center;
-      border-bottom: 2px solid #4f46e5;
-      padding-bottom: 15px;
-      margin-bottom: 25px;
+      font-size: 32px;
+      margin-bottom: 5px;
+      color: #c2185b;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      color: #4f46e5;
-      letter-spacing: 2px;
-    }
-    header p {
-      margin: 5px 0 0 0;
-      font-size: 1.1rem;
-      color: #666;
-    }
-    a.linkedin {
-      color: #0077b5;
-      text-decoration: none;
-      font-weight: 700;
-    }
-    section {
-      margin-bottom: 25px;
-    }
-    section h2 {
-      color: #4f46e5;
-      border-bottom: 2px solid #4f46e5;
+    h2 {
+      font-size: 22px;
+      color: #ad1457;
+      margin-top: 30px;
+      border-bottom: 2px solid #ddd;
       padding-bottom: 6px;
-      margin-bottom: 16px;
-      font-size: 1.6rem;
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.6;
     }
     ul {
-      padding-left: 20px;
-      margin: 0;
-      list-style-type: disc;
+      list-style: none;
+      padding: 0;
     }
-    li {
-      margin-bottom: 8px;
-      line-height: 1.4;
+    ul li {
+      background: #f9f1f6;
+      padding: 10px 15px;
+      margin: 6px 0;
+      border-radius: 6px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
-    .skills-list {
+    ul li:hover {
+      background: #f3d6e6;
+    }
+    /* Tooltip style */
+    ul li .tooltip {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      left: 105%;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ad1457;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: opacity 0.3s;
+      font-size: 13px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    }
+    ul li:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+    .contact {
       display: flex;
+      gap: 15px;
       flex-wrap: wrap;
-      gap: 12px;
     }
-    .skill {
-      background: #e0e7ff;
-      color: #3730a3;
-      padding: 6px 14px;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 0.95rem;
+    .contact div {
+      background: #f7d7e8;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      flex: 1;
+      min-width: 150px;
     }
-    .editable {
-      outline: 2px dashed transparent;
-      transition: outline-color 0.3s ease;
-    }
-    .editable:focus {
-      outline-color: #4f46e5;
-      background-color: #fafbff;
-    }
-    @media (max-width: 600px) {
-      .skills-list {
-        flex-direction: column;
-      }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <div class="container" contenteditable="true" spellcheck="false">
-    <header>
-      <h1 contenteditable="true" class="editable">Jigyasa Tiwari</h1>
-      <p>
-        2nd Year B.Tech Computer Science (IoT/DS)
-      </p>
-      <p>
-        <a href="https://www.linkedin.com/in/jigyasatiwari" target="_blank" rel="noopener" class="linkedin editable">linkedin.com/in/jigyasatiwari</a>
-      </p>
-    </header>
 
-    <section>
-      <h2>Summary</h2>
-      <p contenteditable="true" class="editable">Enthusiastic and passionate 2nd-year B.Tech student specializing in Computer Science with a focus on Internet of Things and Data Science. Eager to apply theoretical knowledge in real-world applications and develop expertise in emerging technologies.</p>
-    </section>
-
-    <section>
-      <h2>Experience</h2>
-      <p contenteditable="true" class="editable">Fresher</p>
-    </section>
-
-    <section>
-      <h2>Certifications</h2>
-      <ul contenteditable="true" class="editable">
-        <li>-- Add your certifications here --</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Education</h2>
-      <p contenteditable="true" class="editable">
-        Bachelor of Technology (B.Tech) in Computer Science (IoT/DS) <br />
-        Current: 2nd Year <br />
-        -- Add Institute and Year --
-      </p>
-    </section>
-
-    <section>
-      <h2>Domain Knowledge</h2>
-      <div class="skills-list" contenteditable="true" class="editable">
-        <span class="skill">Prompt Engineering</span>
-        <span class="skill">Data Science</span>
-        <span class="skill">Machine Learning</span>
-        <span class="skill">Backend Development</span>
-        <span class="skill">Automation</span>
-      </div>
-    </section>
-
-    <section>
-      <h2>Technical Skills</h2>
-      <p><strong>Programming Languages:</strong></p>
-      <div class="skills-list" contenteditable="true" class="editable">
-        <span class="skill">Python</span>
-        <span class="skill">C/C++</span>
-        <span class="skill">SQL</span>
-        <span class="skill">Core Java</span>
-        <span class="skill">Shell Scripting</span>
-      </div>
-      
-      <p style="margin-top: 15px;"><strong>Databases:</strong></p>
-      <div class="skills-list" contenteditable="true" class="editable">
-        <span class="skill">MySQL</span>
-        <span class="skill">Oracle</span>
-        <span class="skill">Postgres</span>
-        <span class="skill">RDS</span>
-      </div>
-    </section>
+  <!-- Top Wave -->
+  <div class="wave">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+      <path d="M0.00,49.98 C150.00,150.00 350.00,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"></path>
+    </svg>
   </div>
+
+  <div class="cv-container">
+    <h1>Jigyasa Tiwari</h1>
+    <p style="text-align:center;">Aspiring Developer | Passionate Learner | Mathematics Enthusiast</p>
+
+    <h2>About Me</h2>
+    <p>
+      I am a motivated learner with a strong interest in software development, data science, and emerging technologies. 
+      I excel in problem-solving and mathematics, and I aim to continuously improve my skills through projects and collaboration.
+    </p>
+
+    <h2>Education</h2>
+    <ul>
+      <li><strong>12th - Lucknow Public Collegiate</strong> | 85% | Class Topper in Mathematics</li>
+    </ul>
+
+    <h2>Technical Skills</h2>
+    <ul>
+      <li>C++ <span class="tooltip">Completed DSA & OOP courses</span></li>
+      <li>Java <span class="tooltip">Built basic projects using Core Java</span></li>
+      <li>R Studio <span class="tooltip">Worked on statistical data analysis</span></li>
+      <li>Kubernetes <span class="tooltip">Learned container orchestration basics</span></li>
+      <li>Python <span class="tooltip">Completed ML & automation mini projects</span></li>
+    </ul>
+
+    <h2>Experience</h2>
+    <ul>
+      <li>Built small coding projects and automated scripts in Python</li>
+      <li>Participated in hackathons and collaborative coding challenges</li>
+    </ul>
+
+    <h2>Projects</h2>
+    <ul>
+      <li>📊 <strong>Data Analysis with Python</strong> – Analyzed datasets using Pandas & Matplotlib</li>
+      <li>🤖 <strong>Basic Chatbot</strong> – Created a chatbot using Python and simple NLP</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <div class="contact">
+      <div>📧 Email: jigyasa@example.com</div>
+      <div>🔗 LinkedIn: linkedin.com/in/jigyasa</div>
+    </div>
+
+    <div class="footer">© 2025 Jigyasa Tiwari | All Rights Reserved</div>
+  </div>
+
+  <!-- Bottom Wave -->
+  <div class="wave" style="transform: rotate(180deg); margin-top:-50px;">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+      <path d="M0.00,49.98 C150.00,150.00 350.00,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"></path>
+    </svg>
+  </div>
+
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jigyasa Tiwari - Resume</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: #f4f7f8;
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
-    .container {
-      max-width: 800px;
-      background: #fff;
-      margin: 0 auto;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      padding: 30px 40px;
-    }
-    header {
-      text-align: center;
-      border-bottom: 2px solid #4f46e5;
-      padding-bottom: 15px;
-      margin-bottom: 25px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      color: #4f46e5;
-      letter-spacing: 2px;
-    }
-    header p {
-      margin: 5px 0 0 0;
-      font-size: 1.1rem;
-      color: #666;
-    }
-    a.linkedin {
-      color: #0077b5;
-      text-decoration: none;
-      font-weight: 700;
-    }
-    section {
-      margin-bottom: 25px;
-    }
-    section h2 {
-      color: #4f46e5;
-      border-bottom: 2px solid #4f46e5;
-      padding-bottom: 6px;
-      margin-bottom: 16px;
-      font-size: 1.6rem;
-    }
-    ul {
-      padding-left: 20px;
-      margin: 0;
-      list-style-type: disc;
-    }
-    li {
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .skill {
-      background: #e0e7ff;
-      color: #3730a3;
-      padding: 6px 14px;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-    .editable {
-      outline: 2px dashed transparent;
-      transition: outline-color 0.3s ease;
-    }
-    .editable:focus {
-      outline-color: #4f46e5;
-      background-color: #fafbff;
-    }
-    @media (max-width: 600px) {
-      .skills-list {
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container" contenteditable="true" spellcheck="false">
-    <header>
-      <h1 contenteditable="true" class="editable">Jigyasa Tiwari</h1>
-      <p>
-        2nd Year B.Tech Computer Science (IoT/DS)
-      </p>
-      <p>
-        <a href="https://www.linkedin.com/in/jigyasatiwari" target="_blank" rel="noopener" class="linkedin editable">linkedin.com/in/jigyasatiwari</a>
-      </p>
-    </header>
-
-    <section>
-      <h2>Summary</h2>
-      <p contenteditable="true" class="editable">Enthusiastic and passionate 2nd-year B.Tech student specializing in Computer Science with a focus on Internet of Things and Data Science. Eager to apply theoretical knowledge in real-world applications and develop expertise in emerging technologies.</p>
-    </section>
-
-    <section>
-      <h2>Experience</h2>
-      <p contenteditable="true" class="editable">Fresher</p>
-    </section>
-
-    <section>
-      <h2>Certifications</h2>
-      <ul contenteditable="true" class="editable">
-        <li>-- Add your certifications here --</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Education</h2>
-      <p contenteditable="true" class="editable">
-        Bachelor of Technology (B.Tech) in Computer Science (IoT/DS) <br />
-        Current: 2nd Year <br />
-        -- Add Institute and Year --
-      </p>
-    </section>
-
-    <section>
-      <h2>Domain Knowledge</h2>
-      <div class="skills-list" contenteditable="true" class="editable">
-        <span class="skill">Prompt Engineering</span>
-        <span class="skill">Data Science</span>
-        <span class="skill">Machine Learning</span>
-        <span class="skill">Backend Development</span>
-        <span class="skill">Automation</span>
-      </div>
-    </section>
-
-    <section>
-      <h2>Technical Skills</h2>
-      <p><strong>Programming Languages:</strong></p>
-      <div class="skills-list" contenteditable="true" class="editable">
-        <span class="skill">Python</span>
-        <span class="skill">C/C++</span>
-        <span class="skill">SQL</span>
-        <span class="skill">Core Java</span>
-        <span class="skill">Shell Scripting</span>
-      </div>
-      
-      <p style="margin-top: 15px;"><strong>Databases:</strong></p>
-      <div class="skills-list" contenteditable="true" class="editable">
-        <span class="skill">MySQL</span>
-        <span class="skill">Oracle</span>
-        <span class="skill">Postgres</span>
-        <span class="skill">RDS</span>
-      </div>
-    </section>
-  </div>
-</body>
-</html>
-
